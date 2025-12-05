@@ -1,0 +1,151 @@
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.Insets?>
+
+<StackPane
+    xmlns="http://javafx.com/javafx/8"
+    xmlns:fx="http://javafx.com/fxml/1"
+    fx:controller="rrosa10Client.PokerScreenController"
+    stylesheets="@/styles/pokerScreenStyle.css">
+
+	<ImageView fx:id="boardImage" fitWidth="1190" fitHeight="800" preserveRatio="false">
+        <image>
+            <Image url="@/images/Board.png"/>
+        </image>
+    </ImageView>
+
+    <BorderPane>
+        <center>
+            <!-- THIS is what makes it sit at the bottom -->
+            <VBox  alignment="BOTTOM_CENTER" prefWidth="550" minWidth="400" maxWidth="550" styleClass="card-border">
+            
+            	<!-- Dealer Cards -->
+                <HBox spacing="20">
+				    <padding>
+				        <Insets left="245"/>
+				    </padding>
+                	<StackPane styleClass="card-border">
+                    	<ImageView fx:id="dealerCard1" fitWidth="120" fitHeight="180" preserveRatio="true"/>
+                    </StackPane>
+                    <StackPane styleClass="card-border">
+                    	<ImageView fx:id="dealerCard2" fitWidth="120" fitHeight="180" preserveRatio="true"/>
+                    </StackPane>
+                    <StackPane styleClass="card-border">
+                    	<ImageView fx:id="dealerCard3" fitWidth="120" fitHeight="180" preserveRatio="true"/>
+                	</StackPane>
+                	<HBox>
+                		<StackPane styleClass="card-border">
+		                	<ImageView fitWidth="210.99" fitHeight="193.2" preserveRatio="true">
+		                      	<image><Image url="@/images/Deck.png"/></image>
+							</ImageView>
+						</StackPane>
+					</HBox>          
+                </HBox>
+                
+                <!-- Buttons -->
+                <HBox alignment="CENTER">
+	               
+                    <StackPane styleClass="button-border">
+					    <ImageView fitWidth="150" fitHeight="210" preserveRatio="true" pickOnBounds="true" fx:id="pairPlusImage" onMouseClicked="#onPairPlusClicked">
+					        <image><Image url="@/images/PairPlus.png"/></image>
+					    </ImageView>
+					</StackPane>
+
+                    <StackPane styleClass="button-border">
+	                    <ImageView fitWidth="150" fitHeight="210" preserveRatio="true" pickOnBounds="true" fx:id="startButton" onMouseClicked="#onStartClicked">
+	                        <image><Image url="@/images/Start.png"/></image>
+	                    </ImageView>
+                    </StackPane>
+                    <StackPane styleClass="button-border">
+	                    <ImageView fitWidth="150" fitHeight="210" preserveRatio="true" pickOnBounds="true" fx:id="anteImage" onMouseClicked="#onAnteClicked">
+	                        <image><Image url="@/images/Ante.png"/></image>
+	                    </ImageView>
+	                </StackPane>
+                </HBox>
+                <!-- Player Cards -->
+                <HBox alignment="BOTTOM_CENTER" spacing="20">
+                    <ImageView fx:id="playerCard1" fitWidth="120" fitHeight="180" preserveRatio="true"/>
+                    <ImageView fx:id="playerCard2" fitWidth="120" fitHeight="180" preserveRatio="true"/>
+                    <ImageView fx:id="playerCard3" fitWidth="120" fitHeight="180" preserveRatio="true"/>
+                </HBox>
+            </VBox>
+        </center>
+        
+		<!-- Bottom-->
+        <bottom>
+            <HBox alignment="CENTER" prefHeight="200" prefWidth="600" styleClass="money-row">
+            	
+            	<ImageView fx:id="fiveDollarImage" fitWidth="150" fitHeight="210" preserveRatio="true" pickOnBounds="true" onMouseClicked="#on5Clicked">
+            		<image><Image url="@/images/FiveDollars.png"/></image>
+            	</ImageView>
+            	<ImageView fx:id="tenDollarImage" fitWidth="150" fitHeight="210" preserveRatio="true" pickOnBounds="true" onMouseClicked="#on10Clicked">
+            		<image><Image url="@/images/TenDollars.png"/></image>
+            	</ImageView>
+            	<ImageView fx:id="twentyDollarImage" fitWidth="150" fitHeight="210" preserveRatio="true" pickOnBounds="true" onMouseClicked="#on20Clicked">
+            		<image><Image url="@/images/TwentyDollars.png"/></image>
+            	</ImageView>
+            	<ImageView fx:id="twentyFiveDollarImage" fitWidth="150" fitHeight="210" preserveRatio="true" pickOnBounds="true" onMouseClicked="#on25Clicked">
+            		<image><Image url="@/images/TwentyFiveDollars.png"/></image>
+            	</ImageView>
+            	
+            	<StackPane>
+	            	<ImageView fitWidth="500" fitHeight="200" preserveRatio="true">
+	            		<image><Image url="@/images/Earnings.png"/></image>
+	            	</ImageView>
+	            	<Text fx:id="walletText" text=" " styleClass="wallet-text"/>
+            	</StackPane>
+            </HBox>
+        </bottom>
+    	<left>
+			<VBox alignment="TOP_RIGHT" styleClass="rules-text" prefWidth="310" minWidth="200" maxWidth="310" spacing="8">
+				<ImageView fx:id="anteRules" fitWidth="250" fitHeight="375" preserveRatio="true">
+            		<image><Image url="@/images/Ante Rules.png"/></image>
+            	</ImageView>       
+            	<ImageView fx:id="pairPlusRules" fitWidth="250" fitHeight="375" preserveRatio="true">
+            		<image><Image url="@/images/PairPlusRules.png"/></image>
+            	</ImageView>
+            <VBox alignment="CENTER" spacing="8" styleClass="left-buttons">
+            		<padding>
+	        			<Insets top="0" right="63" bottom="0" left="0"/>
+	    			</padding>
+            	<ImageView fx:id="foldImage" fitWidth="190" fitHeight="285" preserveRatio="true" onMouseClicked="#onFoldClicked">
+            		<image><Image url="@/images/Fold.png"/></image>
+            	</ImageView>
+            	<ImageView fx:id="playImageLeft" fitWidth="190" fitHeight="285" preserveRatio="true" onMouseClicked="#onLeftPlayClicked">
+            		<image><Image url="@/images/PlayLeft.png"/></image>
+            	</ImageView>
+            	<ImageView fx:id="dealImage" fitWidth="190" fitHeight="285" preserveRatio="true" onMouseClicked="#onDealClicked">
+            		<image><Image url="@/images/Deal.png"/></image>
+            	</ImageView>
+            </VBox>
+            </VBox>
+		</left>
+		<right>
+			<VBox alignment="BOTTOM_LEFT" prefWidth="310" minWidth="200" maxWidth="310" styleClass="card-border">
+				<StackPane styleClass="card-border">
+			    	<TextArea fx:id="logBox" styleClass="transparent-log" editable="false" prefRowCount="6" wrapText="true"/>
+            	</StackPane>
+            	<Text text=" " fx:id="anteText" styleClass="ante-text"/>
+            	<Text text=" " fx:id="pairPlusText" styleClass="pair-play-text"/>
+        	</VBox>
+		</right>
+		<top>
+			<VBox prefHeight="100" spacing="8">
+			<MenuBar>
+				<menus>
+					<Menu text="File" >
+						<items>
+								<MenuItem fx:id= "freshStart" text="Fresh Start" />
+	                       	 	<MenuItem fx:id="newLook" text="New Look" />
+	                        	<MenuItem fx:id="exitItem" text="Exit"/>
+						</items>
+					</Menu>
+				</menus>	
+			</MenuBar>
+            	
+        	</VBox>
+		</top>
+    </BorderPane>
+</StackPane>

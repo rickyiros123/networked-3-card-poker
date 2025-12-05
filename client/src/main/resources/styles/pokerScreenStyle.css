@@ -1,0 +1,88 @@
+/* styles/style1.css */
+
+.root {
+    -fx-background-image: url("/images/bg.jpg");
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center center;
+    /* This makes the image stretch to fill the region */
+	-fx-background-size: 1600 900;
+}
+
+.rules-text {
+    -fx-font-family: "outrun future";
+    -fx-font-size: 15px;
+	-fx-text-alignment: right;
+}
+
+.wallet-text{
+	-fx-font-size: 50px;
+		-fx-fill: white;
+		-fx-font-family: "Post No Bills Colombo SemiBold";  /* use the printed name */
+		-fx-effect: dropshadow( gaussian , green , 8, 0.3 , 2 , 2 );
+}
+
+.pair-play-text{
+	-fx-font-size: 50px;
+	-fx-fill: white;
+	-fx-font-family: "Post No Bills Colombo SemiBold";  /* use the printed name */
+	-fx-effect: dropshadow( gaussian , black , 8, 0.3 , 2 , 2 );
+}
+
+.ante-text{
+	-fx-font-size: 50;
+	-fx-fill: white;
+	-fx-font-family: "Post No Bills Colombo SemiBold";  /* use the printed name */
+	-fx-effect: dropshadow( gaussian , black , 5, 0.3 , 2 , 2 );
+}
+
+.menu-bar{
+	-fx-background-color: #222;
+}
+
+/* Top-level menu buttons (File, Edit, Help) */
+.menu-bar .menu {
+    -fx-background-color: #444;   /* normal */
+    -fx-text-fill: white;         /* text color */
+    -fx-font-size: 14px;          /* font size */
+    -fx-font-weight: bold;        /* bold text */
+    -fx-padding: 5 15 5 15;       /* padding around text */
+}
+
+/* Make TextArea fully transparent so the scene background shows through */
+.transparent-log {
+  -fx-background-color: transparent;            /* outer background */
+  -fx-control-inner-background: transparent;    /* inner editable area */
+  -fx-background-insets: 0;
+  -fx-background-radius: 0;
+  -fx-border-color: transparent;                /* remove border if desired */
+  -fx-padding: 0;
+  -fx-text-fill: white;                         /* keep text readable; change as needed */
+}
+
+/* Also clear nested regions that can paint a background */
+.text-area .content,
+.text-area .scroll-pane,
+.text-area .scroll-pane .viewport {
+  -fx-background-color: transparent;
+}
+
+/* ==== CARD BORDERS ==== */
+.card-border {
+    -fx-padding: 4;
+    -fx-border-color: #FFFFFF;      /* bright white */
+    -fx-border-width: 2;
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
+}
+
+/* ==== BUTTON BORDERS ==== */
+.button-border {
+    -fx-padding: 5;
+    -fx-border-color: #ff00e6;      /* neon magenta */
+    -fx-border-width: 3;
+    -fx-border-radius: 10;
+    -fx-background-radius: 10;
+}
+
+
+

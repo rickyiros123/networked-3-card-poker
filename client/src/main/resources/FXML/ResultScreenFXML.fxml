@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<!--
+  Purpose:
+  - Simple result screen shown after a game round completes.
+  - Controlled by rrosa10Client.ResultScreenController (fx:controller).
+  - Displays a result message, the amount won/lost, and two action buttons.
+-->
+
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="rrosa10Client.ResultScreenController"
+      spacing="20" alignment="CENTER" style="-fx-background-color: #202020;"
+      prefWidth="600" prefHeight="400">
+    
+    <!-- Outer padding for layout spacing -->
+    <padding>
+        <Insets top="40" right="40" bottom="40" left="40"/>
+    </padding>
+
+    <!--
+      Primary result label.
+      The controller updates the text via fx:id="resultMessage" using setResult(...).
+    -->
+    <Label fx:id="resultMessage" text="You Won!" textFill="WHITE">
+        <font>
+            <Font name="System Bold" size="32" />
+        </font>
+    </Label>
+
+    <!--
+      Secondary label showing the amount for the single game.
+      Controller sets fx:id="amountLabel" to the appropriate message.
+    -->
+    <Label fx:id="amountLabel" text="You won $100 this game." textFill="WHITE">
+        <font>
+            <Font size="20" />
+        </font>
+    </Label>
+
+    <!--
+      Action buttons:
+      - playAgainButton: wired to ResultScreenController.onPlayAgainClicked to return to the poker screen.
+      - exitButton: wired to ResultScreenController.onExitClicked to close the app/window.
+    -->
+    <Button fx:id="playAgainButton" text="Play Another Game"
+            onAction="#onPlayAgainClicked"
+            prefWidth="200"/>
+
+    <Button fx:id="exitButton" text="Exit"
+            onAction="#onExitClicked"
+            prefWidth="200"/>
+</VBox>

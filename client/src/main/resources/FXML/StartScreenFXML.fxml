@@ -1,0 +1,39 @@
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+
+<!--
+  Purpose:
+  - Minimal, general start/connection screen for the client application.
+  - Controlled by rrosa10Client.StartScreenController (fx:controller).
+  - Keeps fx:ids and handler names expected by the controller so no controller changes are required.
+  - This file focuses on structure only; visual styling (fonts, colors, spacing) should be provided via CSS.
+-->
+
+<StackPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="rrosa10Client.StartScreenController">
+    <BorderPane>
+        <!-- Top area: title text -->
+        <top>
+            <VBox fx:id="titleBox" alignment="BOTTOM_CENTER" spacing="8">
+                <!-- gradientText is configured programmatically in the controller -->
+                <Text fx:id="gradientText" text="Synthwave Poker" styleClass="titleText"/>
+            </VBox>
+        </top>
+
+        <!-- Center area: simple connection form -->
+        <center>
+            <VBox alignment="CENTER" spacing="8">
+                <!-- portText and ipText are read by the controller when the Connect button is pressed -->
+                <TextField fx:id="portText" styleClass="port" promptText="Port" />
+                <TextField fx:id="ipText" styleClass="ip" promptText="IP / Host" />
+                <!-- instruction label is updated by the controller to show validation/connection status -->
+                <Label fx:id="instruction" styleClass="instruction" text="Connect to a server to begin" />
+                <!-- connectButton triggers StartScreenController.onConnectClicked -->
+                <Button fx:id="connectButton" styleClass="connectButton" text="Connect" onAction="#onConnectClicked"/>
+            </VBox>
+        </center>
+        
+    </BorderPane>
+
+</StackPane>

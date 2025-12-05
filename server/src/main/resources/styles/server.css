@@ -1,0 +1,74 @@
+/* Server CSS — make ListViews transparent so black screen shows through */
+
+/* Ensure the scene/root is black */
+.root {
+    -fx-background-color: black;
+}
+
+/* General label/button colors */
+.label, .button {
+    -fx-text-fill: black;
+    -fx-font-family: "Monospaced";
+	-fx-font-weight: bold; 
+
+}
+
+/* Make both client list and log list transparent so the black Region shows through */
+#logListView {
+    -fx-background-color: transparent;
+    -fx-control-inner-background: transparent;
+    -fx-background-insets: 0;
+    -fx-padding: 4;
+    -fx-border-color: transparent;
+    -fx-font-family: "Monospaced";
+    -fx-font-size: 14px;
+    -fx-text-fill: #33FF33;
+	-fx-font-weight: bold; 
+
+}
+
+#clientListView{
+    -fx-background-color: transparent;
+    -fx-control-inner-background: transparent;
+    -fx-background-insets: 0;
+    -fx-padding: 4;
+    -fx-border-color: transparent;
+    -fx-font-family: "Monospaced";
+    -fx-font-size: 20px;
+    -fx-text-fill: #33FF33;
+	-fx-font-weight: bold;
+
+}
+
+/* Each cell should be transparent and show green text */
+#clientListView .list-cell,
+#logListView .list-cell {
+    -fx-background-color: transparent;
+    -fx-text-fill: #33FF33;
+    -fx-padding: 2 6 2 6;
+    -fx-font-family: "Monospaced";
+}
+
+/* Selection: keep text green and use a very faint tint or fully transparent */
+#clientListView .list-cell:filled:selected,
+#clientListView .list-cell:filled:selected:focused,
+#logListView .list-cell:filled:selected,
+#logListView .list-cell:filled:selected:focused {
+    -fx-background-color: rgba(51,255,51,0.06); /* faint green, change to transparent if you want none */
+    -fx-text-fill: #33FF33;
+}
+
+/* Remove focus ring on listviews */
+#clientListView:focused,
+#logListView:focused {
+    -fx-faint-focus-color: transparent;
+    -fx-focus-color: transparent;
+}
+
+/* Stop button look */
+#stopServerButton {
+    -fx-background-color: transparent;
+    -fx-border-color: #33FF33;
+    -fx-border-radius: 3;
+    -fx-text-fill: #33FF33;
+}

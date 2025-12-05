@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.Region?>
+
+<!--
+  Purpose:
+  - Layout for the server "status" screen controlled by rrosa10Server.ServerScreenController.
+  - Shows server status, port, connected client count, a per-client list and a chronological game log.
+  - UI elements are wired by fx:id to the controller; do not change fx:id names or handler names.
+  - The controller animates the ListView contents and uses a simple "CLIENT:<id>|<payload>" text convention
+    to update individual client rows. See ServerScreenController.logEvent(...) for details.
+-->
+
+<BorderPane xmlns="http://javafx.com/javafx/8"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="rrosa10Server.ServerScreenController"
+            style="-fx-background-color: black;">
+
+    <center>
+        <StackPane>
+            <children>
+                <!-- Background artwork (decorative). The image path should exist under /images/ -->
+                <ImageView fitWidth="810" fitHeight="810" preserveRatio="false">
+                    <image>
+                        <Image url="@/images/computer.png"/>
+                    </image>
+                </ImageView>
+
+                <!--
+                  A dark "screen" Region sits above the background image to visually contain status widgets.
+                  fx:id="greenScreen" is referenced by the controller (for sizing/animation contexts).
+                -->
+                <Region fx:id="greenScreen" prefWidth="650" prefHeight="510"
+                        style="-fx-background-color: black;">
+                    <StackPane.margin>
+                        <Insets top="0" right="0" bottom="120" left="0"/>
+                    </StackPane.margin>
+                </Region>
+
+                <!--
+                  Main overlay with status labels, controls, client list and log.
+                  Keep the fx:ids here in sync with fields in ServerScreenController.
+                -->
+                <VBox spacing="8">
+                    <padding>
+                        <Insets top="20" right="20" bottom="20" left="20"/>
+                    </padding>
+
+                    <!-- Server state label (updated by controller) -->
+                    <Label fx:id="serverStatusLabel"
+                           text="Server stopped"
+                           style="-fx-text-fill: #33FF33; -fx-font-size: 16px;"/>
+
+                    <!-- Port display (updated by controller when server starts) -->
+                    <Label fx:id="portLabel"
+                           text="Port: -"
+                           style="-fx-text-fill: #33FF33;"/>
+
+                    <!-- Connected client counter (updated by controller) -->
+                    <Label fx:id="clientCountLabel"
+                           text="Connected clients: 0"
+                           style="-fx-text-fill: #33FF33;"/>
+
+                    <!-- Stop button wired to ServerScreenController.onStopServerClicked -->
+                    <Button fx:id="stopServerButton"
+                            text="Stop Server"
+                            onAction="#onStopServerClicked"
+                            maxWidth="120"/>
+
+                    <Label text="Clients:" style="-fx-text-fill: #33FF33; -fx-font-weight: bold;"/>
+                    <!--
+                      One row per client - updated in-place by ServerScreenController.updateClientStatus.
+                      The controller animates per-character reveals into this ListView.
+                    -->
+                    <ListView fx:id="clientListView"
+                              prefWidth="400" prefHeight="160"/>
+
+                    <Label text="Game Log:" style="-fx-text-fill: #33FF33; -fx-font-weight: bold;"/>
+
+                    <!--
+                      Chronological log. New entries are appended and animated by the controller.
+                      Keep fx:id unchanged so the controller can access it.
+                    -->
+                    <ListView fx:id="logListView"
+                              prefWidth="400" prefHeight="240"/>
+                </VBox>
+            </children>
+        </StackPane>
+    </center>
+</BorderPane>

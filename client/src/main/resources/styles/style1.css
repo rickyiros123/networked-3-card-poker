@@ -1,0 +1,39 @@
+/* styles/style1.css */
+
+.root {
+    -fx-background-image: url("/images/bg.jpg");
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center center;
+    /* This makes the image stretch to fill the region */
+    -fx-background-size: 1600 900;
+}
+
+/* type selector: all VBox nodes */
+VBox {
+    -fx-spacing: 10;
+    -fx-padding: 10;
+    -fx-alignment: center;
+}
+
+/* id selector: matches nodes with id="centerBox" (not fx:id) */
+#centerBox {
+    -fx-alignment: center;
+}
+
+/* class selector: nodes with styleClass="main-screen" */
+.main-screen {
+    -fx-font-family: "outrun future";
+	-fx-font-size: 100px;
+}
+.port{
+	-fx-max-width: 200;
+}
+.ip{
+	-fx-max-width: 200;
+}
+
+.instruction {
+    -fx-text-fill: #FFFFFF;      /* text color */
+    -fx-font-size: 14px;         /* optional */
+    -fx-font-weight: bold;       /* optional */
+}
