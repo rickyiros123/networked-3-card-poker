@@ -43,15 +43,15 @@ git clone https://github.com/<your-username>/networked-3-card-poker.git
 cd networked-3-card-poker
 
 2. **Build with Maven**
-'''bash
+```bash
 mvn clean install
 
 3. **Run the server**
-'''bash
+```bash
 mvn exec:java
 
 4. **Run the client(s)**
-'''bash
+```bash
 mvn exec:java
 
 5. **Connect multiple clients to the server and start playing. 
