@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<!--
+  Purpose:
+  - Simple intro screen used by the server application to collect a port and start the Server.
+  - Controlled by rrosa10Server.ServerIntroController (fx:controller).
+  - Keep fx:id and handler names (portField, startButton, statusLabel, onStartServerClicked)
+    so the controller can interact with the view without changes.
+-->
+
+<StackPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="rrosa10Server.ServerIntroController">
+    <children>
+        <ImageView fitWidth="1238" fitHeight="761" preserveRatio="false">
+            <image>
+                <Image url="@/images/bg.jpg"/>
+            </image>
+        </ImageView>
+
+        <!-- Centered form container: port input, start button, and status label -->
+        <VBox spacing="15" alignment="CENTER" prefWidth="400" prefHeight="250">
+            <padding>
+                <Insets top="20" right="20" bottom="20" left="20"/>
+            </padding>
+
+            <!--
+              Main title.
+              An inline style is applied here to force black text so it remains visible
+              regardless of any global Label CSS in the application. If you prefer a themeable
+              approach, replace this inline style with styleClass="title" and add rules to server.css.
+            -->
+            <Label text="3 Card Poker Server" style="-fx-text-fill: black;">
+                <font>
+                    <Font size="24"/>
+                </font>
+            </Label>
+
+            <!-- Simple prompt label -->
+            <Label text="Port:" textFill="WHITE"/>
+
+            <!--
+              Port input field (fx:id="portField"):
+              - Controller reads this value and validates it when Start Server is pressed.
+              - promptText gives a hint; maxWidth keeps the control compact on larger windows.
+            -->
+            <TextField fx:id="portField" promptText="Enter port number" maxWidth="200"/>
+
+            <!-- Start button calls ServerIntroController.onStartServerClicked -->
+            <Button fx:id="startButton" text="Start Server" onAction="#onStartServerClicked" maxWidth="140"/>
+
+            <!--
+              statusLabel (fx:id="statusLabel"):
+              - Used by the controller to show validation errors or startup failure messages.
+              - textFill is red to draw attention to errors; wrapText allows multi-line messages.
+            -->
+            <Label fx:id="statusLabel" textFill="RED" wrapText="true" maxWidth="300"/>
+        </VBox>
+    </children>
+</StackPane>

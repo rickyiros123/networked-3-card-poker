@@ -66,23 +66,24 @@
   -fx-background-color: transparent;
 }
 
-/* ==== CARD BORDERS ==== */
+/* ==== CARD BORDERS ==== 
 .card-border {
     -fx-padding: 4;
-    -fx-border-color: #FFFFFF;      /* bright white */
+    -fx-border-color: #FFFFFF;
     -fx-border-width: 2;
     -fx-border-radius: 8;
     -fx-background-radius: 8;
 }
+*/
 
-/* ==== BUTTON BORDERS ==== */
+/*
 .button-border {
     -fx-padding: 5;
-    -fx-border-color: #ff00e6;      /* neon magenta */
+    -fx-border-color: #ff00e6;
     -fx-border-width: 3;
     -fx-border-radius: 10;
     -fx-background-radius: 10;
 }
-
+*/
 
 
