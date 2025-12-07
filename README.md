@@ -41,3 +41,18 @@ A client-server 3-card poker game built in **Java** with **JavaFX** for the fron
 ```bash
 git clone https://github.com/<your-username>/networked-3-card-poker.git
 cd networked-3-card-poker
+
+2. **Build with Maven**
+'''bash
+mvn clean install
+
+3. **Run the server**
+'''bash
+mvn exec:java
+
+4. **Run the client(s)**
+'''bash
+mvn exec:java
+
+5. **Connect multiple clients to the server and start playing. 
+
