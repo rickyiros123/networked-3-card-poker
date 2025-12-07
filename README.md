@@ -18,7 +18,7 @@ A client-server 3-card poker game built in **Java** with **JavaFX** for the fron
 
 ## Tech Stack
 
-- **Language:** Java 17+  
+- **Language:** Java 21+  
 - **Frontend:** JavaFX, FXML, CSS  
 - **Backend:** Java Sockets, multithreaded server  
 - **Build Tool:** Maven  
@@ -31,7 +31,7 @@ A client-server 3-card poker game built in **Java** with **JavaFX** for the fron
 
 ### Prerequisites
 
-- Java 17 or higher  
+- Java 21 or higher  
 - Maven 3.8+  
 - IDE such as Eclipse or IntelliJ (optional, can use terminal)  
 
